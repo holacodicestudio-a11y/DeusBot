@@ -1,0 +1,14 @@
+﻿services:
+  - type: web
+    name: deusbot-tradingview
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: false
+    envVars:
+      - key: TV_WEBHOOK_TOKEN
+        generateValue: true
+      - key: NODE_VERSION
+        value: 22
